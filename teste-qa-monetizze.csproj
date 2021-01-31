@@ -55,13 +55,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageObjects\CartPage.cs" />
+    <Compile Include="PageObjects\CheckoutPage.cs" />
     <Compile Include="PageObjects\ContactPage.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
+    <Compile Include="PageObjects\ShopPage.cs" />
     <Compile Include="PageObjects\ThankYouPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\ContactTest.cs" />
+    <Compile Include="Tests\ShopTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".editorconfig" />
     <None Include="packages.config" />
     <None Include="README.md" />
   </ItemGroup>

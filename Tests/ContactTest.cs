@@ -19,20 +19,6 @@ namespace teste_qa_monetizze.Tests {
         }
 
         [Test]
-        public void EnviarMensagemPelaPaginaContato() {
-
-            HomePage paginaInicial = new HomePage(driver);
-            paginaInicial.AbrirPaginaInicial();
-            paginaInicial.IrParaPaginaDeContato();
-            ContactPage paginaContato = new ContactPage(driver);
-            paginaContato.PreencherFormulario("Thiago", "Drumond", "testes@teste.com", "31912341234", "Testes de Mensagem enviada pelo SE");
-            paginaContato.EnviarMensagem();
-            ThankYouPage paginaAgradecimento = new ThankYouPage(driver);
-
-            Assert.IsTrue(paginaAgradecimento.ValidarAgradecimento());
-        }
-
-        [Test]
         public void PresencaDeCamposPaginaContato() {
 
             HomePage paginaInicial = new HomePage(driver);
@@ -53,6 +39,20 @@ namespace teste_qa_monetizze.Tests {
             paginaContato.DigitarTextoNoCampoTelefone("ABC123");
 
             Assert.IsFalse(paginaContato.VerificarSeHaTextoNoCampoTelefone(),"Campo telefone com dado inválido ou vazio");
+        }
+
+        [Test]
+        public void EnviarMensagemPelaPaginaContato() {
+
+            HomePage paginaInicial = new HomePage(driver);
+            paginaInicial.AbrirPaginaInicial();
+            paginaInicial.IrParaPaginaDeContato();
+            ContactPage paginaContato = new ContactPage(driver);
+            paginaContato.PreencherFormulario("Thiago", "Drumond", "testes@teste.com", "31912341234", "Testes de Mensagem enviada pelo SE");
+            paginaContato.EnviarMensagem();
+            ThankYouPage paginaAgradecimento = new ThankYouPage(driver);
+
+            Assert.IsTrue(paginaAgradecimento.ValidarCarregamentoPaginaThankYou());
         }
 
     }

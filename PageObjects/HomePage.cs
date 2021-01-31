@@ -14,6 +14,9 @@ namespace teste_qa_monetizze.PageObjects {
         [FindsBy(How = How.CssSelector, Using = "#sticky-wrapper>div>div>div>div>nav>ul>li:nth-child(5)>a")]
         private IWebElement PaginaContato;
 
+        [FindsBy(How = How.CssSelector, Using = "#sticky-wrapper>div>div>div>div>nav>ul>li:nth-child(4)>a")]
+        private IWebElement PaginaLoja;
+
         public void AbrirPaginaInicial() {
             Driver.Navigate().GoToUrl("http://monetizzetesteqa.s3-website-us-east-1.amazonaws.com/");
         }
