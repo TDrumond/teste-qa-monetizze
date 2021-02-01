@@ -54,7 +54,7 @@ namespace teste_qa_monetizze.PageObjects {
         }
 
         public bool VerificarSeHaTextoNoCampoTelefone() {
-            string telefone = Driver.FindElement(By.Id("tel")).Text;
+            string telefone = Driver.FindElement(By.Id("tel")).GetAttribute("value");
             Regex VerificarSeHaTexto = new Regex(@".[A-z]");
 
             if (VerificarSeHaTexto.IsMatch(telefone)) {

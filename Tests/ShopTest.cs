@@ -40,7 +40,8 @@ namespace teste_qa_monetizze.Tests {
             paginaDetalheCompra.SelecionarPaisBrasil();
             paginaDetalheCompra.PreencherNomeCliente("Nome", "Sobrenome Cliente Teste");
             paginaDetalheCompra.PreencherEndereco("Rua 1", "386 casa A", "MG", "31100-200");
-            paginaDetalheCompra.PreencherContatos("teste@teste.com.br", "(31)3333-3333");
+            paginaDetalheCompra.PreencherContatoTelefone("(31)3333-3333");
+            paginaDetalheCompra.PreencherContatoEmail("teste@teste.com.br");
             paginaDetalheCompra.PreencherDetalhesAdicionais("Aqui se ficam detalhes adicionais da compra");
             paginaDetalheCompra.PreencherNomeEmpresa("Nome da Empresa");
             paginaDetalheCompra.ClicarBtnFinalizarCompra();
@@ -83,6 +84,31 @@ namespace teste_qa_monetizze.Tests {
             CartPage paginaCarrinho = new CartPage(driver);
             paginaCarrinho.ValidarCarregamentoPaginaCarrinho();
             paginaCarrinho.RemoverItemCarrinho();
+        }
+
+        [Test]
+        [TestCase("31993432242")]
+        [TestCase("ABC")]
+        public void ValidarCampoTelefoneTelaCheckout(string telefone) {
+            HomePage paginaInicial = new HomePage(driver);
+            paginaInicial.AbrirPaginaInicial();
+            paginaInicial.IrParaPaginaDeLoja();
+            ShopPage paginaLoja = new ShopPage(driver);
+            paginaLoja.ValidarCarregamentoPaginaLoja();
+            paginaLoja.VisualizarDetalheProduto();
+            ShopSinglePage paginaDetalhesProduto = new ShopSinglePage(driver);
+            paginaDetalhesProduto.ValidarCarregamentoPaginaDetalhesProduto();
+            paginaDetalhesProduto.AdicionarUmaUnidadeDoProduto();
+            paginaDetalhesProduto.CkicarBtnComprar();
+            CartPage paginaCarrinho = new CartPage(driver);
+            paginaCarrinho.ValidarCarregamentoPaginaCarrinho();
+            paginaCarrinho.AumentarQuantidadePrimeiroItemListaCarrinho();
+            paginaCarrinho.ClicarBtnProsseguirNaPaginaCarrinho();
+            CheckoutPage paginaDetalheCompra = new CheckoutPage(driver);
+            paginaDetalheCompra.ValidarCarregamentoPaginaCheckout();
+            paginaDetalheCompra.PreencherContatoTelefone(telefone);
+            Assert.IsFalse(paginaDetalheCompra.VerificarSeHaTextoNoCampoTelefone());
+
         }
     }
 }

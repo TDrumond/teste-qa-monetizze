@@ -30,13 +30,15 @@ namespace teste_qa_monetizze.Tests {
         }
 
         [Test]
-        public void CampoTelefoneAceitaTexto() {
+        [TestCase("31993432242")]
+        [TestCase("ABC")]
+        public void ValidarCampoTelefoneTelaContato(string telefone) {
 
             HomePage paginaInicial = new HomePage(driver);
             paginaInicial.AbrirPaginaInicial();
             paginaInicial.IrParaPaginaDeContato();
             ContactPage paginaContato = new ContactPage(driver);
-            paginaContato.DigitarTextoNoCampoTelefone("31912341234");
+            paginaContato.DigitarTextoNoCampoTelefone(telefone);
 
             Assert.IsFalse(paginaContato.VerificarSeHaTextoNoCampoTelefone(),"Campo telefone com dado inválido ou vazio");
         }

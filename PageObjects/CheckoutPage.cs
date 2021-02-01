@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using NUnit.Framework;
+using System.Text.RegularExpressions;
 
 namespace teste_qa_monetizze.PageObjects {
     class CheckoutPage {
@@ -35,9 +36,11 @@ namespace teste_qa_monetizze.PageObjects {
             Driver.FindElement(By.Id("c_postal_zip")).SendKeys(cep);
         }
 
-        public void PreencherContatos(string email, string telefone) {
-            Driver.FindElement(By.Id("c_email_address")).SendKeys(email);
+        public void PreencherContatoTelefone( string telefone) {
             Driver.FindElement(By.Id("c_phone")).SendKeys(telefone);
+
+        }public void PreencherContatoEmail(string email) {
+            Driver.FindElement(By.Id("c_email_address")).SendKeys(email);
         }
 
         public void PreencherDetalhesAdicionais(string notes) {
@@ -57,6 +60,18 @@ namespace teste_qa_monetizze.PageObjects {
             StringAssert.IsMatch("true", (Driver.FindElement(By.Id("c_email_address")).GetAttribute("required")), "Campo E-Mail não está como Obrigatório");
             StringAssert.IsMatch("true", (Driver.FindElement(By.Id("c_phone")).GetAttribute("required")), "Campo Telefone não está como Obrigatório");
             StringAssert.IsMatch("true", (Driver.FindElement(By.XPath($"//*[@id=\"c_country\"]/option[4]")).GetAttribute("required")), "Campo País não está como Obrigatório");
+        }
+
+        public bool VerificarSeHaTextoNoCampoTelefone() {
+            //string telefone = Driver.FindElement(By.Id("c_phone")).Text;
+            string telefone = Driver.FindElement(By.Id("c_phone")).GetAttribute("value");
+            Regex VerificarSeHaTexto = new Regex(@".[A-z]");
+
+            if (VerificarSeHaTexto.IsMatch(telefone)) {
+                return true;
+            } else if (telefone == "") {
+                return true;
+            } else { return false; }
         }
     }
 }
