@@ -28,9 +28,9 @@ namespace teste_qa_monetizze.PageObjects {
             Driver.FindElement(By.Id("c_companyname")).SendKeys(empresa);
         }
 
-        public void PreencherEndereco(string endereco, string complemento, string estadoPais, string cep) {
-            Driver.FindElement(By.Id("c_address")).SendKeys(endereco);
-            Driver.FindElement(By.XPath("/html/body/div[1]/form/div/div/div/div[1]/div/div[5]/input")).SendKeys(complemento);
+        public void PreencherEndereco(string rua, string numero, string estadoPais, string cep) {
+            Driver.FindElement(By.Id("c_address")).SendKeys(rua);
+            Driver.FindElement(By.XPath("/html/body/div[1]/form/div/div/div/div[1]/div/div[5]/input")).SendKeys(numero);
             Driver.FindElement(By.Id("c_state_country")).SendKeys(estadoPais);
             Driver.FindElement(By.Id("c_postal_zip")).SendKeys(cep);
         }
@@ -49,8 +49,15 @@ namespace teste_qa_monetizze.PageObjects {
         }
 
         public void ValidarCamposObrigatorios() {
-            // Validar Campos Obrigatórios
-            // Validar e colocar assert em cada um dos campos.
+            StringAssert.IsMatch("true", (Driver.FindElement(By.Id("c_fname")).GetAttribute("required")), "Campo Nome não está como Obrigatório");
+            StringAssert.IsMatch("true", (Driver.FindElement(By.Id("c_lname")).GetAttribute("required")), "Campo Sobrenome não está como Obrigatório");
+            StringAssert.IsMatch("true", (Driver.FindElement(By.Id("c_address")).GetAttribute("required")), "Campo Endereço não está como Obrigatório");
+            StringAssert.IsMatch("true", (Driver.FindElement(By.Id("c_state_country")).GetAttribute("required")), "Campo Estado não está como Obrigatório");
+            StringAssert.IsMatch("true", (Driver.FindElement(By.Id("c_postal_zip")).GetAttribute("required")), "Campo CEP não está como Obrigatório");
+            StringAssert.IsMatch("true", (Driver.FindElement(By.Id("c_email_address")).GetAttribute("required")), "Campo E-Mail não está como Obrigatório");
+            StringAssert.IsMatch("true", (Driver.FindElement(By.Id("c_phone")).GetAttribute("required")), "Campo Telefone não está como Obrigatório");
+            StringAssert.IsMatch("true", (Driver.FindElement(By.XPath($"//*[@id=\"c_country\"]/option[4]")).GetAttribute("required")), "Campo País não está como Obrigatório");
+
         }
 
     }

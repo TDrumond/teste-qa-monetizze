@@ -60,6 +60,7 @@
     <Compile Include="PageObjects\ContactPage.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="PageObjects\ShopPage.cs" />
+    <Compile Include="PageObjects\ShopSinglePage.cs" />
     <Compile Include="PageObjects\ThankYouPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\ContactTest.cs" />

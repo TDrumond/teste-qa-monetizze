@@ -25,5 +25,10 @@ namespace teste_qa_monetizze.PageObjects {
             PaginaContato.Click();
             return new ContactPage(Driver);
         }
+
+        public ShopPage IrParaPaginaDeLoja() {
+            PaginaLoja.Click();
+            return new ShopPage(Driver);
+        }
     }
 }

@@ -15,10 +15,9 @@ namespace teste_qa_monetizze.PageObjects {
             Assert.IsTrue(tituloTopoPagina.ToString().Equals("nossos produtos"), "Página de Loja não foi carregada!");
         }
 
-        public void ClicarBtnAdicionarCarrinhoPrimeiroVinho() {
+        public void VisualizarDetalheProduto() {
             Driver.FindElement(By.XPath("/html/body/div[1]/div[3]/div/div[2]/div[1]/div/a")).Click();
         }
-
 
 
     }

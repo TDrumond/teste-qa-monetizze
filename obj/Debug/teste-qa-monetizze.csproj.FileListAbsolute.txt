@@ -1,3 +1,5 @@
+F:\Monetizze\teste-qa-monetizze\obj\Debug\teste-qa-monetizze.csprojAssemblyReference.cache
+F:\Monetizze\teste-qa-monetizze\obj\Debug\teste-qa-monetizze.csproj.CoreCompileInputs.cache
 F:\Monetizze\teste-qa-monetizze\bin\Debug\NUnit3.TestAdapter.dll
 F:\Monetizze\teste-qa-monetizze\bin\Debug\NUnit3.TestAdapter.pdb
 F:\Monetizze\teste-qa-monetizze\bin\Debug\nunit.engine.dll
@@ -11,8 +13,6 @@ F:\Monetizze\teste-qa-monetizze\bin\Debug\WebDriver.Support.dll
 F:\Monetizze\teste-qa-monetizze\bin\Debug\nunit.framework.xml
 F:\Monetizze\teste-qa-monetizze\bin\Debug\WebDriver.xml
 F:\Monetizze\teste-qa-monetizze\bin\Debug\WebDriver.Support.xml
-F:\Monetizze\teste-qa-monetizze\obj\Debug\teste-qa-monetizze.csprojAssemblyReference.cache
-F:\Monetizze\teste-qa-monetizze\obj\Debug\teste-qa-monetizze.csproj.CoreCompileInputs.cache
 F:\Monetizze\teste-qa-monetizze\obj\Debug\teste-qa-monetizze.csproj.CopyComplete
 F:\Monetizze\teste-qa-monetizze\obj\Debug\teste-qa-monetizze.dll
 F:\Monetizze\teste-qa-monetizze\obj\Debug\teste-qa-monetizze.pdb

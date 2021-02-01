@@ -20,25 +20,52 @@ namespace teste_qa_monetizze.Tests {
 
 
         [Test]
-
-        public void ComprarUmVinho() {
-
-            /*
-              Clicar no Menu Loja ( XParth = //*[@id="sticky-wrapper"]/div/div/div/div/nav/ul/li[4]/a )
-            Validar se a Página se possui o texto "Nossos Produtos" no elemento ( XPath: /html/body/div[1]/div[3]/div/div[1]/div/h2 )
-
-            Aplicar o estado :hover no elemento ( XPath = /html/body/div[1]/div[3]/div/div[2]/div[1]/div/div[2] )
-            
-            Clicar no Botão Adicionar do primeiro vinho da lista ( XPath: /html/body/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/a )
-            Validar se a Página carregada possui o texto "Meu carrinho" no elemento ( /html/body/div[1]/div[3]/div/div[1]/div/h2 )
-
-
-
-             */
-
+        public void ComprarDuasUnidades() {
+            HomePage paginaInicial = new HomePage(driver);
+            paginaInicial.AbrirPaginaInicial();
+            paginaInicial.IrParaPaginaDeLoja();
+            ShopPage paginaLoja = new ShopPage(driver);
+            paginaLoja.ValidarCarregamentoPaginaLoja();
+            paginaLoja.VisualizarDetalheProduto();
+            ShopSinglePage paginaDetalhesProduto = new ShopSinglePage(driver);
+            paginaDetalhesProduto.ValidarCarregamentoPaginaDetalhesProduto();
+            paginaDetalhesProduto.AdicionarUmaUnidadeDoProduto();
+            paginaDetalhesProduto.CkicarBtnComprar();
+            CartPage paginaCarrinho = new CartPage(driver);
+            paginaCarrinho.ValidarCarregamentoPaginaCarrinho();
+            paginaCarrinho.AumentarQuantidadePrimeiroItemListaCarrinho();
+            paginaCarrinho.ClicarBtnProsseguirNaPaginaCarrinho();
+            CheckoutPage paginaDetalheCompra = new CheckoutPage(driver);
+            paginaDetalheCompra.ValidarCarregamentoPaginaCheckout();
+            paginaDetalheCompra.SelecionarPaisBrasil();
+            paginaDetalheCompra.PreencherNomeCliente("Nome", "Sobrenome Cliente Teste");
+            paginaDetalheCompra.PreencherEndereco("Rua 1", "386 casa A", "MG", "31100-200");
+            paginaDetalheCompra.PreencherContatos("teste@teste.com.br", "(31)3333-3333");
+            paginaDetalheCompra.PreencherDetalhesAdicionais("Aqui se ficam detalhes adicionais da compra");
+            paginaDetalheCompra.PreencherNomeEmpresa("Nome da Empresa");
+            paginaDetalheCompra.ClicarBtnFinalizarCompra();
+            ThankYouPage paginaAgradecimento = new ThankYouPage(driver);
+            paginaAgradecimento.ValidarCarregamentoPaginaThankYou();
         }
 
+        [Test]
+        public void ValidarCamposObrigatorios() {
+            HomePage paginaInicial = new HomePage(driver);
+            paginaInicial.AbrirPaginaInicial();            
+            ShopPage paginaLoja = paginaInicial.IrParaPaginaDeLoja();
+            paginaLoja.ValidarCarregamentoPaginaLoja();
+            paginaLoja.VisualizarDetalheProduto();
+            ShopSinglePage paginaDetalhesProduto = new ShopSinglePage(driver);
+            paginaDetalhesProduto.AdicionarUmaUnidadeDoProduto();
+            paginaDetalhesProduto.CkicarBtnComprar();
+            CartPage paginaCarrinho = new CartPage(driver);
+            paginaCarrinho.ValidarCarregamentoPaginaCarrinho();
+            paginaCarrinho.ClicarBtnProsseguirNaPaginaCarrinho();
+            CheckoutPage paginaDetalheCompra = new CheckoutPage(driver);
+            paginaDetalheCompra.ValidarCarregamentoPaginaCheckout();
 
+            paginaDetalheCompra.ValidarCamposObrigatorios();
+        }
 
     }
 }

@@ -12,10 +12,11 @@ namespace teste_qa_monetizze.PageObjects {
         }
 
 
-        public bool ValidarCarregamentoPaginaThankYou() {
+        public void ValidarCarregamentoPaginaThankYou() {
             try {
                 string obrigado = Driver.FindElement(By.XPath("/html/body/div[1]/div[3]/div/div/div/h2")).Text.ToString().ToLower();
-                return (obrigado.ToString().Equals("obrigado"));
+                StringAssert.IsMatch("obrigado",obrigado);
+                //Assert.IsTrue(obrigado.ToString().Equals("obrigado"));
 
             } catch (Exception) {
                 throw new AssertionException("A Página de agradecimento não foi carregada.");

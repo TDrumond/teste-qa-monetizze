@@ -36,7 +36,7 @@ namespace teste_qa_monetizze.Tests {
             paginaInicial.AbrirPaginaInicial();
             paginaInicial.IrParaPaginaDeContato();
             ContactPage paginaContato = new ContactPage(driver);
-            paginaContato.DigitarTextoNoCampoTelefone("ABC123");
+            paginaContato.DigitarTextoNoCampoTelefone("31912341234");
 
             Assert.IsFalse(paginaContato.VerificarSeHaTextoNoCampoTelefone(),"Campo telefone com dado inválido ou vazio");
         }
@@ -52,7 +52,7 @@ namespace teste_qa_monetizze.Tests {
             paginaContato.EnviarMensagem();
             ThankYouPage paginaAgradecimento = new ThankYouPage(driver);
 
-            Assert.IsTrue(paginaAgradecimento.ValidarCarregamentoPaginaThankYou());
+            paginaAgradecimento.ValidarCarregamentoPaginaThankYou();
         }
 
     }
