@@ -26,7 +26,7 @@ namespace teste_qa_monetizze.Tests {
             paginaInicial.IrParaPaginaDeContato();
             ContactPage paginaContato = new ContactPage(driver);
 
-            Assert.IsTrue(paginaContato.VerificarLayout());
+            Assert.IsTrue(paginaContato.ValidarCarregamentoPaginaContato());
         }
 
         [Test]

@@ -19,7 +19,7 @@ namespace teste_qa_monetizze.PageObjects {
             string nomePrimeiroElementoLista = Driver.FindElement(By.XPath("/html/body/div[1]/div[3]/div/div[2]/form/div/table/tbody/tr[1]/td[2]/h2")).Text;
             Driver.FindElement(By.XPath("/html/body/div[1]/div[3]/div/div[2]/form/div/table/tbody/tr[1]/td[6]/a")).Click();
             string nomePrimeiroElementoListaAposExclusao = Driver.FindElement(By.XPath("/html/body/div[1]/div[3]/div/div[2]/form/div/table/tbody/tr[1]/td[2]/h2")).Text;
-            Assert.IsTrue(nomePrimeiroElementoLista.Equals(nomePrimeiroElementoListaAposExclusao));
+            Assert.IsFalse(nomePrimeiroElementoLista.Equals(nomePrimeiroElementoListaAposExclusao),"A exclusão não está funcionando pois o elemento excluido continua presente na tela");
         }
 
         public void AumentarQuantidadePrimeiroItemListaCarrinho() {

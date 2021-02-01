@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Text.RegularExpressions;
 
@@ -30,7 +31,7 @@ namespace teste_qa_monetizze.PageObjects {
         [FindsBy(How = How.CssSelector, Using = "body>div.site-wrap>div.site-section.bg-light>div>div>div>form>div:nth-child(4)>div>input")]
         private IWebElement botaoEnviar;
 
-        public bool VerificarLayout() {
+        public bool ValidarCarregamentoPaginaContato() {
             string nomeCampo = Driver.FindElement(By.XPath("/html/body/div[1]/div[4]/div/div/div/div/h2")).Text.ToString().ToLower();
             return (nomeCampo.ToString().Equals("contato"));
         }
@@ -62,5 +63,7 @@ namespace teste_qa_monetizze.PageObjects {
                 return true;
             } else { return false; }
         }
+
     }
 }
+

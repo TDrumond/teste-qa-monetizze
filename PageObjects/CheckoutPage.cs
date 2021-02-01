@@ -48,7 +48,7 @@ namespace teste_qa_monetizze.PageObjects {
             Driver.FindElement(By.Id("btnSubmit")).Click();
         }
 
-        public void ValidarCamposObrigatorios() {
+        public void ValidarCamposObrigatoriosPaginaDetalhesCompra() {
             StringAssert.IsMatch("true", (Driver.FindElement(By.Id("c_fname")).GetAttribute("required")), "Campo Nome não está como Obrigatório");
             StringAssert.IsMatch("true", (Driver.FindElement(By.Id("c_lname")).GetAttribute("required")), "Campo Sobrenome não está como Obrigatório");
             StringAssert.IsMatch("true", (Driver.FindElement(By.Id("c_address")).GetAttribute("required")), "Campo Endereço não está como Obrigatório");
@@ -57,8 +57,6 @@ namespace teste_qa_monetizze.PageObjects {
             StringAssert.IsMatch("true", (Driver.FindElement(By.Id("c_email_address")).GetAttribute("required")), "Campo E-Mail não está como Obrigatório");
             StringAssert.IsMatch("true", (Driver.FindElement(By.Id("c_phone")).GetAttribute("required")), "Campo Telefone não está como Obrigatório");
             StringAssert.IsMatch("true", (Driver.FindElement(By.XPath($"//*[@id=\"c_country\"]/option[4]")).GetAttribute("required")), "Campo País não está como Obrigatório");
-
         }
-
     }
 }

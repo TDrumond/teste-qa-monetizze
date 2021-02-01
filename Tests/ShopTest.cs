@@ -51,7 +51,7 @@ namespace teste_qa_monetizze.Tests {
         [Test]
         public void ValidarCamposObrigatorios() {
             HomePage paginaInicial = new HomePage(driver);
-            paginaInicial.AbrirPaginaInicial();            
+            paginaInicial.AbrirPaginaInicial();
             ShopPage paginaLoja = paginaInicial.IrParaPaginaDeLoja();
             paginaLoja.ValidarCarregamentoPaginaLoja();
             paginaLoja.VisualizarDetalheProduto();
@@ -64,8 +64,25 @@ namespace teste_qa_monetizze.Tests {
             CheckoutPage paginaDetalheCompra = new CheckoutPage(driver);
             paginaDetalheCompra.ValidarCarregamentoPaginaCheckout();
 
-            paginaDetalheCompra.ValidarCamposObrigatorios();
+            paginaDetalheCompra.ValidarCamposObrigatoriosPaginaDetalhesCompra();
         }
 
+        [Test]
+        public void ExcluirItemCarrinho() {
+
+            HomePage paginaInicial = new HomePage(driver);
+            paginaInicial.AbrirPaginaInicial();
+            paginaInicial.IrParaPaginaDeLoja();
+            ShopPage paginaLoja = new ShopPage(driver);
+            paginaLoja.ValidarCarregamentoPaginaLoja();
+            paginaLoja.VisualizarDetalheProduto();
+            ShopSinglePage paginaDetalhesProduto = new ShopSinglePage(driver);
+            paginaDetalhesProduto.ValidarCarregamentoPaginaDetalhesProduto();
+            paginaDetalhesProduto.AdicionarUmaUnidadeDoProduto();
+            paginaDetalhesProduto.CkicarBtnComprar();
+            CartPage paginaCarrinho = new CartPage(driver);
+            paginaCarrinho.ValidarCarregamentoPaginaCarrinho();
+            paginaCarrinho.RemoverItemCarrinho();
+        }
     }
 }

@@ -22,7 +22,6 @@ namespace teste_qa_monetizze.PageObjects {
         public void AdicionarUmaUnidadeDoProduto() {
             Driver.FindElement(By.XPath("/html/body/div[1]/div[4]/div/div/div[2]/div/div/div[2]/button")).Click();
         }
-
         public void CkicarBtnComprar() {
             Driver.FindElement(By.XPath("/html/body/div[1]/div[4]/div/div/div[2]/p[2]/a")).Click();
         }

@@ -19,6 +19,5 @@ namespace teste_qa_monetizze.PageObjects {
             Driver.FindElement(By.XPath("/html/body/div[1]/div[3]/div/div[2]/div[1]/div/a")).Click();
         }
 
-
     }
 }

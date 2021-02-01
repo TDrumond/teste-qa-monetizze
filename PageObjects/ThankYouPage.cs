@@ -16,7 +16,6 @@ namespace teste_qa_monetizze.PageObjects {
             try {
                 string obrigado = Driver.FindElement(By.XPath("/html/body/div[1]/div[3]/div/div/div/h2")).Text.ToString().ToLower();
                 StringAssert.IsMatch("obrigado",obrigado);
-                //Assert.IsTrue(obrigado.ToString().Equals("obrigado"));
 
             } catch (Exception) {
                 throw new AssertionException("A Página de agradecimento não foi carregada.");
